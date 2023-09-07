@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CV design</title>
+
+    <style>
+      body {
+        background-color: white;
+      }
+
+      hr {
+        border-top: 2px solid rgb(31, 114, 139);
+        margin: 30px 0;
+      }
+      .image {
+        display: inline-block;
+        position: absolute;
+        overflow: hidden;
+
+        /* left:1130px; */
+
+        left: 40px;
+        top: 8px;
+
+        /* border: 2px solid red; */
+      }
+
+      .image:hover {
+        cursor: pointer;
+      }
+
+      .intro {
+        height: 90px;
+        width: 180px;
+        padding: 2px;
+        position: absolute;
+        box-sizing: border-box;
+        bottom: 0px;
+        background-color: rgb(27, 27, 27, 0.5);
+
+        color: white;
+      }
+      .intro p {
+        margin: 10px;
+        font-size: 18px;
+        visibility: hidden;
+        opacity: 0;
+      }
+      .intro h2 {
+        margin-top: 20px;
+        margin: 5px;
+        bottom: 0px;
+      }
+      .image:hover .intro {
+        height: 170px;
+        bottom: 0px;
+        background-color: rgb(27, 27, 27, 0.5);
+      }
+      .image:hover p {
+        opacity: 1;
+        visibility: visible;
+      }
+      .name {
+        /* border: 2px solid palegreen;  */
+        margin: 1px auto;
+        display: block;
+
+        /* margin-top: 110px; */
+        margin-left: 280px;
+
+        color: rgb(253, 255, 255);
+        padding: 10px;
+
+        /* border-color: black;
+            border-radius: 10px;
+
+            background-color: blueviolet; */
+
+        width: 35%;
+        height: 130px;
+        /* height: 200px; */
+      }
+      .prof h1 {
+        font-size: 22px;
+        display: inline;
+      }
+
+      .image img {
+        height: 170px;
+        width: 200x;
+      }
+
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: left;
+        /* background-color: bisque; */
+
+        /* padding-left: 40px;
+        background-color: bisque; */
+      }
+      .prof {
+        width: 200px;
+        padding: 20px;
+        margin: 110px;
+        /* border: 1px solid black; */
+        margin-top: 40px;
+        /* flex: 1;
+        margin-right: 0;
+        margin-left: 10px; */
+        /* background-color: aqua; */
+      }
+      .con {
+        display: flex;
+        flex-direction: row;
+      }
+      .container1 {
+        display: flex;
+        padding-top: 60px;
+        padding-left: 40px;
+      }
+
+      .sum {
+        flex: 1;
+        margin-right: 0;
+        margin-left: 10px;
+      }
+
+      .main {
+        display: flex;
+        background-color: brown;
+      }
+      .c1 {
+        background-color: antiquewhite;
+        padding: auto;
+        margin-top: 10px;
+        /* border: 1px solid palevioletred; */
+        margin-left: 10px;
+      }
+      .c2 {
+        background-color: white;
+      }
+      .im img {
+        margin-top: 50px;
+        float: left;
+        width: 70px;
+        margin-right: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <div class="image">
+        <img src="img/myimg.jpeg" alt="" srcset="" />
+        <div class="intro">
+          <h2>My Profile</h2>
+          <p>
+            Hi my name is Ayesha.<br />This is my first<br />lab assignment.
+          </p>
+        </div>
+      </div>
+
+      <div class="name">
+        <h1>Ayesha Rao</h1>
+        <h2>Web and Mobile App Developer</h2>
+      </div>
+    </div>
+
+    <div class="con">
+      <div class="container">
+        <div class="prof c1">
+          <h1>PROFILE</h1>
+          <p>
+            Computer science student<br />
+            I consider myself a responsible <br />
+            and orderly person.<br />I am looking forward for my<br />
+            first work experience
+          </p>
+          <hr />
+          <h2>SUMMARY</h2>
+          <p>
+            Enthusiastic and highly motivated computer science<br />
+            student with a strong foundation in programming,<br />
+            algorithms, and problem-solving. Adept at a variety of programming
+            languages,<br />
+            including (mention specific languages, e.g., Python, Java),<br />
+            and experienced in software development through<br />
+            coursework and personal projects.
+          </p>
+        </div>
+      </div>
+
+      <div class="container">
+        <div>
+          <h2>CERTIFICATIONS</h2>
+
+          <p>
+            I have completed Artificial Interlligence course from course era and
+            have certifications in Machine Learning, Deep Image Processing and
+            Artificial Interlligence basic course.
+          </p>
+          <hr />
+        </div>
+        <div class="im">
+          <img src="img/edu.jpg" alt="" srcset="" />
+          <div>
+            <h2>EDUCATION</h2>
+            <li>BSCS from COMSATS UNIVERSITY ISLAMABAD</li>
+            <li>FSC in pre medical and pre engineering</li>
+            <li>Matriculation</li>
+          </div>
+        </div>
+        <hr />
+
+        <div class="im">
+          <img src="img/contact logo.jpg" alt="" srcset="" />
+          <div>
+            <h2>CONTACTS</h2>
+            <p>Phone: 0312-1234567</p>
+            <p>Email:ayeshasara002@gmail.com</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- <div class="prof c2">
+        <h1>EDUCATION</h1>
+        <ul>
+            <li>Matriculation</li>
+            <li>Intermediate</li>
+            <li>BS Computer Science</li>
+        </ul>
+        
+      </div>
+      <div class="prof c3">
+        <h1>PROJECTS</h1>
+        <p>
+          Computer science student<br />
+          I consider myself a responsible <br />
+          and orderly person.<br />I am looking forward for my<br />
+          first work experience
+        </p>
+
+        <h2>CONTACTS</h2>
+
+      </div>
+    </div> -->
+      <!-- <div class="container1">
+      <div class="sum">
+        <h2>SUMMARY</h2>
+        <p>
+          Enthusiastic and highly motivated computer science<br> student with a
+          strong foundation in programming,<br> algorithms, and problem-solving.
+          Adept at a variety of programming languages,<br> including (mention
+          specific languages, e.g., Python, Java),<br> and experienced in software
+          development through<br> coursework and personal projects.
+        </p>
+      </div>
+      <div class="sum">
+        <h2>CERTIFICATIONS</h2>
+      </div>
+
+      <div class="sum">
+        <h3>CONTACT</h3>
+      </div>
+      <!-- <div class="sum">
+        <h3>REFERENCES</h3>
+      </div>
+       -->
+    </div>
+    -->
+  </body>
+</html>
