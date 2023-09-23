@@ -12,6 +12,15 @@
     body {
       background-color: rgb((244, 240, 236), 215);
     }
+   
+    .imge :hover{
+      transform: scale(1.1);
+
+      /* filter: grayscale(100%); /* Start as grayscale */
+    /* transition: filter 0.3s; */ 
+    
+     
+    }
 
     .col {
       padding: 5px;
@@ -21,6 +30,18 @@
     .img {
       width: 300px;
       height: 300px;
+    }
+    .img2 :hover{
+      
+      border: 2px solid #d43535; 
+     box-shadow: 0 0 10px rgba(0, 0, 0, 0.9); 
+     /* transform: scale(1.1); */
+     filter: grayscale(100%);
+
+
+    }
+    .img3 :hover{
+      transform: scale(1.1);
     }
 
     .para {
@@ -142,8 +163,8 @@
         </div>
       </div>
       <div class="container text-center">
-        <div class="row align-items-start" style="margin: 40px">
-          <div class="col">
+        <div class="row align-items-start " style="margin: 40px">
+          <div class="col img2">
             <img class="img" src="./img/pr1.jpg" class="img-thumbnail" alt="..." />
             <p class="para">
               Indulge in the world of mesmerizing beauty with our exceptional
@@ -152,15 +173,15 @@
               versatile looks
             </p>
           </div>
-          <div class="col">
-            <img class="img" src="./img/lip.jpg" class="img-thumbnail" alt="..." />
+          <div class="col img2 ">
+            <img class="img " src="./img/lip.jpg" class="img-thumbnail" alt="..." />
             <p class="para">
               Dive into a world of bold, beautiful colors that suit every mood
               and occasion. Our lipsticks glide on smoothly, offering a velvety
               texture and intense color that stays put all day.
             </p>
           </div>
-          <div class="col">
+          <div class="col img2">
             <img class="img" src="./img/pr3.jpg" class="img-thumbnail" alt="..." />
 
             <p class="para">
@@ -194,7 +215,7 @@
           helping you achieve the complexion you've always dreamed of.
         </p>
         <div class="container text-center">
-          <div class="row align-items-center" style="justify-content: center;">
+          <div class="row align-items-center img3" style="justify-content: center;">
             <div class="col">
               <img style="border-radius: 50%; height: 90px; width: 90px;" class="img" src="./img/cr1.jpg"
                 class="img-thumbnail" alt="..." />
@@ -231,7 +252,7 @@
           RADIENT ESSENTIALS
         </h6>
         <div class="container text-center">
-          <div class="row align-items-center">
+          <div class="row align-items-center imge">
             <div class="col">
               <img style="height: auto;" class="img" src="./img/skin.jpg" class="img-thumbnail" alt="..." />
             </div>
