@@ -31,17 +31,36 @@
       width: 300px;
       height: 300px;
     }
-    .img2 :hover{
+    .img2{
+      animation: my-animation 7s infinite }
+      @keyframes my-animation {
+        0% { transform: rotate(0deg); }
+        30% { transform: rotate(90deg); }
+        
+        50% { transform: rotate(180deg); }
+       70% { transform: rotate(270deg); }
+        
+        100% { transform: rotate(360deg); }
+      }
+    /* .img2 :hover{
       
       border: 2px solid #d43535; 
      box-shadow: 0 0 10px rgba(0, 0, 0, 0.9); 
-     /* transform: scale(1.1); */
-     filter: grayscale(100%);
+     transform: scale(1.1); */
+     /* filter: grayscale(100%); */
 
 
-    }
+    /* } */
     .img3 :hover{
       transform: scale(1.1);
+    }
+    .fade-out{
+      animation: fadeOut 5s infinite;
+    }
+    @keyframes fadeOut {
+      0% { opacity: 1; }
+      50% { opacity: 0.5; }
+      100% { opacity: 1; }
     }
 
     .para {
@@ -157,7 +176,7 @@
               Know More
             </button>
           </div>
-          <div class="col">
+          <div class="col fade-out">
             <img src="./img/mk2.jpg" class="img-thumbnail" alt="..." />
           </div>
         </div>
@@ -166,29 +185,29 @@
         <div class="row align-items-start " style="margin: 40px">
           <div class="col img2">
             <img class="img" src="./img/pr1.jpg" class="img-thumbnail" alt="..." />
-            <p class="para">
+            <!-- <p class="para">
               Indulge in the world of mesmerizing beauty with our exceptional
               eyeshadow palette. Elevate your eye makeup game with a spectrum of
               rich, pigmented shades that blend seamlessly to create stunning,
               versatile looks
-            </p>
+            </p> -->
           </div>
           <div class="col img2 ">
             <img class="img " src="./img/lip.jpg" class="img-thumbnail" alt="..." />
-            <p class="para">
+            <!-- <p class="para">
               Dive into a world of bold, beautiful colors that suit every mood
               and occasion. Our lipsticks glide on smoothly, offering a velvety
               texture and intense color that stays put all day.
-            </p>
+            </p> -->
           </div>
           <div class="col img2">
             <img class="img" src="./img/pr3.jpg" class="img-thumbnail" alt="..." />
 
-            <p class="para">
+            <!-- <p class="para">
               Achieve flawless, radiant skin with our premium foundation
               collection. Our foundation is more than just makeup; it's your
               secret to a perfect complexion.
-            </p>
+            </p> -->
           </div>
         </div>
       </div>
@@ -257,7 +276,7 @@
               <img style="height: auto;" class="img" src="./img/skin.jpg" class="img-thumbnail" alt="..." />
             </div>
             <div class="col">
-              <img style="margin: 10px; height: 250px; width: 250px;" class="img" src="./img/im1.jpg"
+              <img  style="margin: 10px; height: 250px; width: 250px;" class="img" src="./img/im1.jpg"
                 class="img-thumbnail" alt="..." />
               <p>Achieve flawless skin with our best-selling foundation, now available at just $29.99. Unleash your
                 beauty's
@@ -274,7 +293,7 @@
               <p>Experience the magic of our best-selling serum, a skincare essential, priced at just $39.99. Elevate
                 your
                 skincare routine and unveil a youthful, glowing complexion that's worth every penny.</p>
-              <img style="margin: 10px; height: 250px; width: 250px;" class="img" src="./img/im4.jpg"
+              <img  style="margin: 10px; height: 250px; width: 250px;" class="img" src="./img/im4.jpg"
                 class="img-thumbnail" alt="..." />
               <p>Indulge in luxury with our best-selling face mask, now at just $19.99. Elevate your skincare routine
                 and
