@@ -13,15 +13,21 @@ const generateToken = (user) => {
 }
 
 const register= async (req, res) => {
-    const { username, password, email } = req.body;
+    const { email,password} = req.body;
     try {
+      const existingUser = await User.findOne({email});
+      if(existingUser){
+        return res.status(400).send('User already exists');
+        console.log("user already exists");
+      }
       const hashedPassword = await bcrypt.hash(password, 10);
-      const newUser = new User({ username, password: hashedPassword, email });
+      const newUser = new User({ email, password: hashedPassword});
       await newUser.save();
       res.send('User registered successfully');
     } catch (error) {
       console.error(error);
       res.status(500).send('Error registering user');
+      console.log("Error registering user");
     }
   };
 

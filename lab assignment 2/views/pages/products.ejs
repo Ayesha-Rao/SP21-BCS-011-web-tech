@@ -82,11 +82,15 @@
 
     </style>
     <title>Product Cards</title>
+
+    
 </head>
 
 <body>
+    
     <div class="p-3 mb-2 bg-secondary text-white">
     <%- include('../partials/navbar') %>
+   
         <div class="container text-center">
             <div class="row">
                 <div class="col">
@@ -95,7 +99,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Lip Gloss</h5>
                             <p class="card-text">Price: $299</p>
-                            <a href="#" class="btn btn-primary">ADD TO CART</a>
+                            <a href="/checkout.html?product=Lip Gloss" class="btn btn-primary">ADD TO CART</a>
                         </div>
                     </div>
                 </div>
@@ -105,7 +109,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Matte Lipstick</h5>
                             <p class="card-text">Price: $299</p>
-                            <a href="#" class="btn btn-primary">ADD TO CART</a>
+                            <a href="/checkout.html?product=Matte Lipstick" class="btn btn-primary">ADD TO CART</a>
                         </div>
                     </div>
                 </div>
@@ -170,7 +174,7 @@
                                 <img src="/img/eye3.jpg" class="card-img-top" alt="...">
                                 <div class="card-body">
                                     <h5 class="card-title">Glitter love</h5>
-                                    <p class="card-text"Price: $299</p>
+                                    <p> class="card-text"Price: $299</p>
                                     <a href="#" class="btn btn-primary">ADD TO CART</a>
                                 </div>
                             </div>
@@ -276,13 +280,15 @@
                                     </div>
                                     <div class="col">
                                         <div class="card" style="width: 18rem;">
-                                            <img src="/img/mak7.jpg" class="card-img-top" alt="...">
+                                            <img src="/img/eye3.jpg" class="card-img-top" alt="...">
                                             <div class="card-body">
-                                                <h5 class="card-title">The Glitter Love</h5>
+                                                <h5 class="card-title">Glitter love</h5>
                                                 <p class="card-text">Price: $299</p>
+                                                <!-- Fix: Added the missing > after p tag -->
                                                 <a href="#" class="btn btn-primary">ADD TO CART</a>
                                             </div>
                                         </div>
+                                        
                                     </div>
                                 </div>
                                 <div class="container text-center">
@@ -321,7 +327,57 @@
                                 </div>
                                
                             </div>
-                            
+                            <div class="container text-center">
+                                <ul class="pagination">
+                                    <li style="margin: 3px;" class="page-item" id="prevPage"><a class="page-link" href="#">Previous</a></li>
+                                    <li style="margin: 3px;"  class="page-item" id="currentPage">Page 1</li>
+                                    <li style="margin: 3px;"  class="page-item" id="nextPage"><a class="page-link" href="#">Next</a></li>
+                                </ul>
+                            </div>
+                        
+                            <script>
+                                document.addEventListener('DOMContentLoaded', function () {
+                                    const products = document.querySelectorAll('.card');
+                                    const pageSize = 3;
+                                    let currentPage = 1;
+                        
+                                    function showPage(page) {
+                                        const startIndex = (page - 1) * pageSize;
+                                        const endIndex = startIndex + pageSize;
+                        
+                                        products.forEach((product, index) => {
+                                            if (index >= startIndex && index < endIndex) {
+                                                product.style.display = 'block';
+                                            } else {
+                                                product.style.display = 'none';
+                                            }
+                                        });
+                        
+                                        document.getElementById('currentPage').innerText = `Page ${currentPage}`;
+                                    }
+                        
+                                    document.getElementById('prevPage').addEventListener('click', function () {
+                                        if (currentPage > 1) {
+                                            currentPage--;
+                                            showPage(currentPage);
+                                        }
+                                    });
+                        
+                                    document.getElementById('nextPage').addEventListener('click', function () {
+                                        const totalPages = Math.ceil(products.length / pageSize);
+                                        if (currentPage < totalPages) {
+                                            currentPage++;
+                                            showPage(currentPage);
+                                        }
+                                    });
+                        
+                                    // Initially show the first page
+                                    showPage(currentPage);
+                                });
+                            </script>
+                           
+
+                           
                             
 </body>
 

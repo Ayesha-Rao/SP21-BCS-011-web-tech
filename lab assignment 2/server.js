@@ -1,5 +1,6 @@
 var express = require('express');
-const userRoutes=require('./routes/userRoutes');
+// const userRoutes=require('./routes/userRoutes');
+const article=require("./models/article");
 var path=require('path')
 
 var app = express();
@@ -51,12 +52,13 @@ app.use(session({
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
+
 app.use(express.static(path.join("public")))
 
 
 
 app.use(require("./routes/userRoutes"));
-
+app.use(require("./routes/articleRoute"));
 
 
 
@@ -70,12 +72,36 @@ app.get('/jqueryvalidate.html', (req, res) => {
 app.get('/login.html', (req, res) => {
     res.render('pages/login'); // This assumes a file named "landingpage.ejs" in the "views/pages" directory
 });
+
+
 app.get('/products.html', (req, res) => {
     res.render('pages/products'); // This assumes a file named "landingpage.ejs" in the "views/pages" directory
 });
+
+// app.get('/checkout.html', (req, res) => {
+//     res.render('pages/checkout'); // This assumes a file named "checkout.ejs" in the "views/pages" directory
+// });
+app.get('/checkout.html', (req, res) => {
+    const selectedProduct = req.query.product || 'DefaultProduct'; // Default value if product is not provided
+    res.render('pages/checkout', { selectedProduct });
+});
+
+
+app.get('/exploreproducts.html', (req, res) => {
+    res.render('pages/exploreproducts'); // This assumes a file named "landingpage.ejs" in the "views/pages" directory
+});
+
+
+
+
 app.get('/landingpage.html', (req, res) => {
     res.render('pages/landingpage'); // This assumes a file named "landingpage.ejs" in the "views/pages" directory
 });
+
+
+
+
+
 app.get('/land', (req, res) => {
     res.render('pages/landingpage'); // This assumes a file named "landingpage.ejs" in the "views/pages" directory
 });
@@ -102,5 +128,5 @@ app.get('/login', (req, res) => {
 //   res.render('pages/about');
 // });
 
-app.listen(3000);
-console.log('Server is listening on port 3000');
+app.listen(4000);
+console.log('Server is listening on port 4000');

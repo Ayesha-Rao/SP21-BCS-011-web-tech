@@ -1,0 +1,28 @@
+<!-- seeProducts.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Include necessary head content -->
+</head>
+
+<body>
+    <%- include('../partials/navbar') %>
+    <div class="backg-image"></div>
+
+    <h1>Product List</h1>
+
+    <div class="product-list">
+        <% products.forEach(product => { %>
+            <div class="product">
+                <h3><%= product.title %></h3>
+                <p><%= product.description %></p>
+                <p><%= product.price %></p>
+            </div>
+        <% }); %>
+    </div>
+
+</body>
+
+</html>

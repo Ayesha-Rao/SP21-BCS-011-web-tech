@@ -5,7 +5,7 @@ const requireAuthentication = (req, res, next) => {
     if (req.session.user) {
       return next();
     } else {
-      return res.send('/login'); // Redirect to the login page
+      return res.redirect('/login.html'); // Redirect to the login page
     }
   };
   

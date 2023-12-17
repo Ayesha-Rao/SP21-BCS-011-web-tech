@@ -5,7 +5,7 @@ $("#seeUsers").click(function () {
         // console.error("User not an admin. Please log in as admin.");
         // return;
       
-    fetch("http://localhost:3000/api/users", {
+    fetch("http://localhost:4000/api/users", {
         method: "GET",
         headers: {
             // 'Authorization': 'Bearer ' + token,
@@ -19,6 +19,8 @@ $("#seeUsers").click(function () {
 
         })
     })
+
+   
     $("#loginform").validate({
         rules: {
             email: {
@@ -47,7 +49,7 @@ $("#seeUsers").click(function () {
                 password: password,
             };
 
-            fetch("http://localhost:3000/login", {
+            fetch("http://localhost:4000/login", {
                 method: "POST",
                 headers: {
                     // "Authorisation" : "Bearer " + authToken,
@@ -56,7 +58,7 @@ $("#seeUsers").click(function () {
                 body: JSON.stringify(data),
             }).then((res) => {
                 if (res.status === 200) {
-                    window.location.href = "http://localhost:3000/products.html";
+                    window.location.href = "http://localhost:4000/products.html";
                     // authToken = res.token;
                     // console.log(authToken);
                     // return res.json();
@@ -106,7 +108,7 @@ $("#seeUsers").click(function () {
                     password: password,
                 };
     
-                fetch("http://localhost:3000/register", {
+                fetch("http://localhost:4000/register", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
@@ -123,5 +125,67 @@ $("#seeUsers").click(function () {
                     });
             },
         });
+        $("#addProductID").click(function(){
+            $("#productform").validate({
+                rules: {
+                    title: {
+                        required: true,
+                        },
+                    description: {
+                        required: true,
+                    },
+                    price: {
+                        required: true,
+                       
+                    },
+                },
+                messages: {
+                    title: {
+                        required: "Please enter title",
+                        
+                    },
+                    description: {
+                        required: "Please enter product description",
+                      
+                    },
+                    price: {
+                        required: "Please enter product price",
+                    },
+                },
+                errorElement: "span",
+            submitHandler: function (form) {
+                const title = $("#title").val();
+                const description = $("#description").val();
+                const price = $("#price").val();
+                const data = {
+                    title: title,
+                    description: description,
+                    price: price,
+                };
     
+            fetch("http://localhost:4000/api/addarticle", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(data),
+            })
+                .then((response) => response.json())
+                .then((result) => {
+                    console.log(result);
+                    // Handle the result as needed
+                })
+                .catch((error) => {
+                    console.error("Error:", error);
+                });
+        
+        }
+    })
+
+    });
+    
+
+       
+
+
 })
