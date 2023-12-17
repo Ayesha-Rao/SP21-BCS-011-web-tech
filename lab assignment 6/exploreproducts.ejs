@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+    <script src="/script.js"></script>
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+
+
+
+    <!-- <script src="/script.js"></script> -->
+
+    <title>Product Page</title>
+    <style>
+     body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+    max-width: 1200px; /* Add a max-width to the container */
+    margin: 0 auto; /* Center the container */
+}
+
+.search-container {
+    margin-bottom: 20px;
+}
+
+.product-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center the products horizontally */
+}
+
+.product {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 16px;
+    width: 300px;
+    text-align: center;
+}
+
+.product h2 {
+    margin-bottom: 10px;
+}
+
+/* .product img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-bottom: 12px;
+} */
+
+
+
+.product img {
+            max-width: 30%;
+           
+            border-radius: 8px;
+            margin-bottom: 1px;
+        }
+    </style>
+</head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<body>
+    
+    
+    <div class="container">
+        <%- include('../partials/navbar') %>
+        <div class="search-container">
+            <label for="searchInput">Search by Product:</label>
+            <input type="text" id="searchInput" class="form-control" placeholder="Type to search">
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+    
+        <div class="product-container">
+            <div class="product" data-id="1">
+                <h2>LIP GLOSS</h2>
+                <img src="/img/lipstick1.jpg" class="card-img-top" alt="...">
+                <p>pure quality lip gloss enriched with scent</p>
+            </div>
+            <div class="product" data-id="2">
+                <h2>MATTE LIPSTICK</h2>
+                <img src="/img/lip2.jpg" class="card-img-top" alt="...">
+                <p>moisturized and creamy formula</p>
+            </div>
+            <div class="product" data-id="2">
+                <h2>EYE SHADOW</h2>
+                <img src="/img/eye1.jpg" class="card-img-top" alt="...">
+                <p>glitter eye shadows just for you.</p>
+            </div>
+            <div class="product" data-id="2">
+                <h2>DARK LIPSTICK</h2>
+                <img src="/img/mak2.jpg" class="card-img-top" alt="...">
+                <p>highly sustainable</p>
+            </div>
+            
+            
+            <!-- Add more product cards as needed -->
+        </div>
+        
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+  
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+    const products = document.querySelectorAll('.product');
+
+    document.getElementById('searchInput').addEventListener('input', function () {
+        const searchValue = this.value.toLowerCase();
+
+        products.forEach((product) => {
+            const productTitle = product.querySelector('h2').innerText.toLowerCase();
+            const productDescription = product.querySelector('p').innerText.toLowerCase();
+
+            if (productTitle.includes(searchValue) || productDescription.includes(searchValue)) {
+                product.style.display = 'block';
+            } else {
+                product.style.display = 'none';
+            }
+        });
+    });
+});
+
+    </script>
+
+    <!-- <script src="script.js"></script> -->
+</body>
+
+</html>
