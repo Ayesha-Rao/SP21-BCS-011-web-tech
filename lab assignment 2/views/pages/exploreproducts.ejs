@@ -1,188 +1,292 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
-    <script src="/script.js"></script>
-    <link rel="stylesheet" type="text/css" href="/styles.css">
-
-
-
-    <!-- <script src="/script.js"></script> -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" type="text/css" href="/styles.css" />
 
     <title>Product Page</title>
     <style>
-     body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-}
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+      }
 
-.container {
-    text-align: center;
-    max-width: 1200px; /* Add a max-width to the container */
-    margin: 0 auto; /* Center the container */
-}
+      .navbar {
+        background-color: #333;
+        padding: 1rem;
+        text-align: center;
+        color: white;
+      }
 
-.search-container {
-    margin-bottom: 20px;
-}
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+      }
 
-.product-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center; /* Center the products horizontally */
-}
+      .search-container {
+        text-align: center;
+        margin-bottom: 20px;
+      }
 
-.product {
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    padding: 16px;
-    margin: 16px;
-    width: 300px;
-    text-align: center;
-}
+      .product-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+        justify-content: center;
+        align-items: center;
+      }
 
-.product h2 {
-    margin-bottom: 10px;
-}
+      .product {
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        overflow: hidden;
+        transition: transform 0.3s;
+        background: white;
+        width: 250px; /* Adjust the width as needed */
+        height: 200px; /* Adjust the height as needed */
+      }
 
-/* .product img {
-    max-width: 100%;
-    border-radius: 8px;
-    margin-bottom: 12px;
-} */
+      .product:hover {
+        transform: scale(1.05);
+      }
 
+      .product img {
+        width: 100%;
+        height: 120px; /* Set the desired height for the image */
+        object-fit: cover; /* Maintain aspect ratio and cover the entire space */
+        border-bottom: 1px solid #ccc;
+      }
 
+      .product-content {
+        padding: 1px;
+        text-align: center;
+      }
 
-.product img {
-            max-width: 30%;
-           
-            border-radius: 8px;
-            margin-bottom: 1px;
-        }
+      .product h2 {
+        margin-bottom: 1px;
+        font-size: 1.2rem;
+        color: #333;
+      }
+
+      .product p {
+        font-size: 1.2rem;
+        color: #666;
+      }
+
+      .search-results {
+        margin-top: 20px;
+        text-align: center;
+      }
     </style>
-</head>
+  </head>
 
+  <body>
+    <%- include('../partials/navbar') %>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-<body>
-    
-    
     <div class="container">
-        <%- include('../partials/navbar') %>
-        <div class="search-container">
-            <label for="searchInput">Search by Product:</label>
-            <input type="text" id="searchInput" class="form-control" placeholder="Type to search">
+      <div class="search-container">
+        <label for="searchInput">Search by Product:</label>
+        <input
+          type="text"
+          id="searchInput"
+          class="form-control"
+          placeholder="Type to search"
+        />
+      </div>
+
+      <div class="product-container" id="productContainer">
+        <div class="product" data-id="1">
+          <img src="/img/serum1.jpg" class="card-img-top" alt="..." />
+          <div class="product-content">
+            <h2>mendaelic acid serum</h2>
+            <p>organic serum for acne</p>
+          </div>
+        </div>
+        <div class="product" data-id="2">
+          <img src="/img/serum2.jpg" class="card-img-top" alt="..." />
+          <div class="product-content">
+            <h2>hydraulic serum</h2>
+            <p>Moisturized and acne free skin</p>
+          </div>
+        </div>
+        <div class="product" data-id="2">
+          <img src="/img/serum3.jpg" class="card-img-top" alt="..." />
+          <div class="product-content">
+            <h2>poreless serum</h2>
+            <p>poreless skin organic formula</p>
+          </div>
+        </div>
+        <div class="product" data-id="2">
+          <img src="/img/tube1.jpg" class="card-img-top" alt="..." />
+          <div class="product-content">
+            <h2>mandelic tube</h2>
+            <p>cream tube for acne</p>
+          </div>
+        </div>
+        <div class="product" data-id="2">
+          <img src="/img/tube2.jpg" class="card-img-top" alt="..." />
+          <div class="product-content">
+            <h2>Aloe vera gel tube</h2>
+            <p>Aloe Vera gel will make your skin shine. </p>
+          </div>
+        </div>
+        <div class="product" data-id="2">
+          <img src="/img/tube3.jpg" class="card-img-top" alt="..." />
+          <div class="product-content">
+            <h2>Rose Face tube</h2>
+            <p>Reduces signs of skin aging </p>
+          </div>
+        </div>
+        <div class="product" data-id="2">
+          <img src="/img/serum4.jpg" class="card-img-top" alt="..." />
+          <div class="product-content">
+            <h2> Vitamin C Skin Serum.</h2>
+            <p>Anti Acne Serum by Spa in a bottle;</p>
+          </div>
         </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-    
-        <div class="product-container">
-            <div class="product" data-id="1">
-                <h2>LIP GLOSS</h2>
-                <img src="/img/lipstick1.jpg" class="card-img-top" alt="...">
-                <p>pure quality lip gloss enriched with scent</p>
-            </div>
-            <div class="product" data-id="2">
-                <h2>MATTE LIPSTICK</h2>
-                <img src="/img/lip2.jpg" class="card-img-top" alt="...">
-                <p>moisturized and creamy formula</p>
-            </div>
-            <div class="product" data-id="2">
-                <h2>EYE SHADOW</h2>
-                <img src="/img/eye1.jpg" class="card-img-top" alt="...">
-                <p>glitter eye shadows just for you.</p>
-            </div>
-            <div class="product" data-id="2">
-                <h2>DARK LIPSTICK</h2>
-                <img src="/img/mak2.jpg" class="card-img-top" alt="...">
-                <p>highly sustainable</p>
-            </div>
-            
-            
-            <!-- Add more product cards as needed -->
+        <div class="product" data-id="3">
+          <img src="/img/serum5.jpg" class="card-img-top" alt="..." />
+          <div class="product-content">
+            <h2>moisturiser serum</h2>
+            <p> It's tempting to skip moisturiser if you have oily or acne-prone skin </p>
+          </div>
         </div>
-        
+        <div class="product" data-id="3">
+            <img src="/img/serum6.jpg" class="card-img-top" alt="..." />
+            <div class="product-content">
+              <h2>EYE SHADOW</h2>
+              <p>Glitter eye shadows just for you</p>
+            </div>
+          </div>
+          <div class="product" data-id="3">
+            <img src="/img/serum7.jpg" class="card-img-top" alt="..." />
+            <div class="product-content">
+              <h2>SkinMedica serum</h2>
+              <p>TNS Advanced+</p>
+            </div>
+          </div>
+        <div class="product" data-id="4">
+          <img src="/img/tube4.jpg" class="card-img-top" alt="..." />
+          <div class="product-content">
+            <h2>Fevicid Cream tube</h2>
+            <p>anti aging tube</p>
+          </div>
+        </div>
+        <div class="product" data-id="4">
+            <img src="/img/tube6.jpg" class="card-img-top" alt="..." />
+            <div class="product-content">
+              <h2>acne marks tube</h2>
+              <p>Highly sustainable</p>
+            </div>
+          </div>
+          <div class="product" data-id="4">
+            <img src="/img/tube7.jpg" class="card-img-top" alt="..." />
+            <div class="product-content">
+              <h2>Soothe Skin tube</h2>
+              <p>Tula Super Soothe Skin Moisturizer.</p>
+            </div>
+          </div>
+          <div class="product" data-id="4">
+            <img src="/img/tube8.jpg" class="card-img-top" alt="..." />
+            <div class="product-content">
+              <h2>DARK LIPSTICK</h2>
+              <p>Highly sustainable</p>
+            </div>
+          </div>
+          <div class="product" data-id="4">
+            <img src="/img/tube9.jpg" class="card-img-top" alt="..." />
+            <div class="product-content">
+              <h2>Marlowe Facial tube</h2>
+              <p>EDITOR'S CHOICE: Marlowe Facial Moisturizer.</p>
+            </div>
+          </div>
+          <div class="product" data-id="4">
+            <img src="/img/tube10.jpg" class="card-img-top" alt="..." />
+            <div class="product-content">
+              <h2>Ultra Soothing Face tube</h2>
+              <p>Ultra Soothing Face Moisturizer.</p>
+            </div>
+          </div>
+          <div class="product" data-id="4">
+            <img src="/img/tube11.jpg" class="card-img-top" alt="..." />
+            <div class="product-content">
+              <h2>First Aid Beauty</h2>
+              <p>First Aid Beauty Ultra Repair Cream.</p>
+            </div>
+          </div>
+          <div class="product" data-id="4">
+            <img src="/img/tube12.jpg" class="card-img-top" alt="..." />
+            <div class="product-content">
+              <h2>sun block tube</h2>
+              <p>Highly sustainable</p>
+            </div>
+          </div>
+          <div class="product" data-id="4">
+            <img src="/img/tube5.jpg" class="card-img-top" alt="..." />
+            <div class="product-content">
+              <h2>skin care tube</h2>
+              <p>Highly sustainable</p>
+            </div>
+          </div>
+        <!-- Add more product cards as needed -->
+      </div>
 
-
+      <div class="search-results" id="searchResults"></div>
     </div>
 
-
-
-
-
-
-
-
-
-
-  
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-    const products = document.querySelectorAll('.product');
+      document.addEventListener("DOMContentLoaded", function () {
+        const products = document.querySelectorAll(".product");
+        const productContainer = document.getElementById("productContainer");
+        const searchResults = document.getElementById("searchResults");
 
-    document.getElementById('searchInput').addEventListener('input', function () {
-        const searchValue = this.value.toLowerCase();
+        document
+          .getElementById("searchInput")
+          .addEventListener("input", function () {
+            const searchValue = this.value.toLowerCase();
 
-        products.forEach((product) => {
-            const productTitle = product.querySelector('h2').innerText.toLowerCase();
-            const productDescription = product.querySelector('p').innerText.toLowerCase();
+            const matchingProducts = [...products].filter((product) => {
+              const productTitle = product
+                .querySelector(".product-content h2")
+                .innerText.toLowerCase();
+              const productDescription = product
+                .querySelector(".product-content p")
+                .innerText.toLowerCase();
 
-            if (productTitle.includes(searchValue) || productDescription.includes(searchValue)) {
-                product.style.display = 'block';
+              return (
+                productTitle.includes(searchValue) ||
+                productDescription.includes(searchValue)
+              );
+            });
+
+            if (searchValue.trim() === "") {
+              productContainer.style.display = "grid";
+              searchResults.innerHTML = "";
             } else {
-                product.style.display = 'none';
+              productContainer.style.display = "none";
+              searchResults.innerHTML = `
+                        <p>Showing results for: <strong>${searchValue}</strong></p>
+                        <div class="product-container">
+                            ${matchingProducts
+                              .map((product) => product.outerHTML)
+                              .join("")}
+                        </div>`;
             }
-        });
-    });
-});
-
+          });
+      });
     </script>
-
-    <!-- <script src="script.js"></script> -->
-</body>
-
+  </body>
 </html>

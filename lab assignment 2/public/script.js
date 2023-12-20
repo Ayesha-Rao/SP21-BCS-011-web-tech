@@ -20,7 +20,7 @@ $("#seeUsers").click(function () {
         })
     })
 
-   
+    
     $("#loginform").validate({
         rules: {
             email: {
@@ -69,7 +69,7 @@ $("#seeUsers").click(function () {
 
         },
     });
-        // Add validation rules to the form elements
+    //     // Add validation rules to the form elements
         $("#registration-form").validate({
             rules: {
                 email: {

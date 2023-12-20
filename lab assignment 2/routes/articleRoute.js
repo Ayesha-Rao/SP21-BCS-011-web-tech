@@ -7,6 +7,7 @@ const {authenticateToken} = require('../middlewares/loginMiddleware');
 //jewellery api
 router.post('/api/addarticle',articleController.addarticle);
 router.get('/api/getarticle',articleController.getarticle);
+router.get('/api/getArticleById/:id',articleController.getarticle);
 
 
 

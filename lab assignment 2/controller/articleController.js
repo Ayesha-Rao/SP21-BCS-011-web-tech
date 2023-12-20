@@ -18,9 +18,31 @@ const addarticle = async (req, res) => {
     console.log("Error adding article");
     }
 }
+// const getarticle = async (req, res) => {
+//  console.log("getarticle");   
+// }
+
 const getarticle = async (req, res) => {
- console.log("getarticle");   
-}
+    try {
+        const article = await Article.find();
+        console.log(article);
+        res.json(article);
+    } catch (error) {
+      console.error(error);
+      res.status(500).send('Internal server error');
+    }
+  };
+const getArticleById = async (req, res) => {
+    try {
+        const article = await Article.findById(req.params.id);
+        console.log(article);
+        res.json(article);
+    } catch (error) {
+      console.error(error);
+      res.send(error);
+    //   res.status(500).send('Internal server error');
+    }
+  };
 
 
-module.exports = {addarticle,getarticle,};
+module.exports = {addarticle,getarticle,getArticleById,getarticle};

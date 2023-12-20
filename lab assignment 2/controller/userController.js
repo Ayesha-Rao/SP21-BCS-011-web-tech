@@ -34,9 +34,9 @@ const register= async (req, res) => {
   const login = async (req, res) => {
     const { email, password } = req.body;
     try{
-    const user = await User.findOne({email}).maxTimeMS(16000);
+    const user = await User.findOne({email});
     if(user && bcrypt.compareSync(password, user.password)){
-      req.session.user = ({username: user.username, email: user.email});
+      req.session.user = ({email: user.email});
       const token = generateToken(user);
       res.cookie("token",token);
       console.log('Generated Token:', token);
@@ -104,18 +104,57 @@ const register= async (req, res) => {
   //     res.status(500).send('Error logging in');
   //   }
   // };
+  // const getUsers = async (req, res) => {
+  //   try {
+  //     const email = req.user.email;
+  
+  //     if(email==="admin123@gmail.com"){
+  //       // const token = generateToken(AdminUser);
+  //       const users = await User.find();
+  //       console.log(users);
+  //       res.json(users);
+  //     }
+  //     else{
+  //       return res.status(400).send('User is not an admin');
+  //     }
+  //   } catch (error) {
+  //     console.error(error);
+  //     res.status(500).send('Internal server error');
+  //   }
+  // };
+
+
+
+
+
+
   const getUsers = async (req, res) => {
     try {
-      const email = req.user.email;
+      const { email, password } = req.user;
   
-      if(email==="admin123@gmail.com"){
-        // const token = generateToken(AdminUser);
+      if (email === "admin123@gmail.com") {
         const users = await User.find();
         console.log(users);
         res.json(users);
-      }
-      else{
-        return res.status(400).send('User is not an admin');
+      } else {
+        // Retrieve user from the database based on the provided email
+        const user = await User.findOne({ email });
+  
+        if (!user) {
+          return res.status(404).send('User not found');
+        }
+  
+        // Compare the entered password with the hashed password
+        const isPasswordValid = await bcrypt.compare(password, user.password);
+  
+        if (isPasswordValid && user.role === 'admin') {
+          // The user is an admin, proceed with retrieving all users
+          const users = await User.find();
+          console.log(users);
+          res.json(users);
+        } else {
+          return res.status(401).send('Invalid credentials or user is not an admin');
+        }
       }
     } catch (error) {
       console.error(error);
