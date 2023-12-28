@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+    
+<script src="/script.js"></script>
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+    <style>
+        /* body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .card {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 16px;
+            margin: 16px;
+            width: 300px;
+            text-align: center;
+        }
+
+        .card img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin-bottom: 12px;
+        }
+
+        .price {
+            font-size: 1.2em;
+            color: #333;
+            margin-bottom: 12px;
+        }
+
+        .add-to-cart {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1em;
+        } */
+        .card img {
+            max-width: 100%;
+           
+            border-radius: 8px;
+            margin-bottom: 12px;
+        }
+        .card {
+            border: 3px solid #ccc;
+            border-radius: 8px;
+            padding: 16px;
+            margin: 16px;
+            width: 300px;
+            text-align: center;
+        }
+        .col :hover{
+    transform: scale(1.0
+    );
+    background-color:rgb(222, 218, 218);
+  }
+  
+   
+ 
+
+    </style>
+    <title>Product Cards</title>
+
+    
+</head>
+
+<body>
+    
+    <div class="p-3 mb-2 bg-secondary text-white">
+    <%- include('../partials/navbar') %>
+   
+        <div class="container text-center">
+            <div class="row">
+                <div class="col">
+                    <div class="card" style="width: 18rem;">
+                        <img src="/img/lipstick1.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Lip Gloss</h5>
+                            <p class="card-text">Price: $299</p>
+                            <a href="/checkout.html?product=Lip Gloss" class="btn btn-primary">ADD TO CART</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card" style="width: 18rem;">
+                        <img src="/img/lip2.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Matte Lipstick</h5>
+                            <p class="card-text">Price: $299</p>
+                            <a href="/checkout.html?product=Matte Lipstick" class="btn btn-primary">ADD TO CART</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card" style="width: 18rem;">
+                        <img src="/img/lip3.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Maroon Lipstick</h5>
+                            <p class="card-text">Price: $299</p>
+                            <a href="#" class="btn btn-primary">ADD TO CART</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container text-center">
+                <div class="row">
+                    <div class="col">
+                        <div class="card" style="width: 18rem;">
+                            <img src="/img/lip4.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Matte Red</h5>
+                                <p class="card-text">Price: $299</p>
+                                <a href="#" class="btn btn-primary">ADD TO CART</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card" style="width: 18rem;">
+                            <img src="/img/eye7.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Dark Glory</h5>
+                                <p class="card-text">Price: $299</p>
+                                <a href="#" class="btn btn-primary">ADD TO CART</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card" style="width: 18rem;">
+                            <img src="/img/eye1.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Eye Shadow Kit</h5>
+                                <p class="card-text">Price: $299</p>
+                                <a href="#" class="btn btn-primary">ADD TO CART</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container text-center">
+                    <div class="row">
+                        <div class="col">
+                            <div class="card" style="width: 18rem;">
+                                <img src="/img/eye2.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Unicorn Shades</h5>
+                                    <p class="card-text">Price: $299</p>
+                                    <a href="#" class="btn btn-primary">ADD TO CART</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card" style="width: 18rem;">
+                                <img src="/img/eye3.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Glitter love</h5>
+                                    <p> class="card-text"Price: $299</p>
+                                    <a href="#" class="btn btn-primary">ADD TO CART</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card" style="width: 18rem;">
+                                <img src="/img/eye4.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Colors of spring</h5>
+                                    <p class="card-text">Price: $299</p>
+                                    <a href="#" class="btn btn-primary">ADD TO CART</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container text-center">
+                        <div class="row">
+                            <div class="col">
+                                <div class="card" style="width: 18rem;">
+                                    <img src="/img/eye5.jpg" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Bright colors</h5>
+                                        <p class="card-text">Price: $299</p>
+                                        <a href="#" class="btn btn-primary">ADD TO CART</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card" style="width: 18rem;">
+                                    <img src="/img/eye6.jpg" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title">The nude KIt</h5>
+                                        <p class="card-text">Price: $299</p>
+                                        <a href="#" class="btn btn-primary">ADD TO CART</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card" style="width: 18rem;">
+                                    <img src="/img/mak1.jpg" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title">3 in 1 nail colors</h5>
+                                        <p class="card-text">Price: $299</p>
+                                        <a href="#" class="btn btn-primary">ADD TO CART</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container text-center">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="card" style="width: 18rem;">
+                                        <img src="/img/mak2.jpg" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Organic maroon</h5>
+                                            <p class="card-text">Price: $299</p>
+                                            <a href="#" class="btn btn-primary">ADD TO CART</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card" style="width: 18rem;">
+                                        <img src="/img/mak3.jpg" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <h5 class="card-title">The Sublte shadows</h5>
+                                            <p class="card-text">Price: $299</p>
+                                            <a href="#" class="btn btn-primary">ADD TO CART</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card" style="width: 18rem;">
+                                        <img src="/img/mak4.jpg" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Fresh green nails</h5>
+                                            <p class="card-text">Price: $299</p>
+                                            <a href="#" class="btn btn-primary">ADD TO CART</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container text-center">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="card" style="width: 18rem;">
+                                            <img src="/img/mak5.jpg" class="card-img-top" alt="...">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Herbal Serum</h5>
+                                                <p class="card-text">Price: $299</p>
+                                                <a href="#" class="btn btn-primary">ADD TO CART</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="card" style="width: 18rem;">
+                                            <img src="/img/mak6.jpg" class="card-img-top" alt="...">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Organic vitaminC</h5>
+                                                <p class="card-text">Price: $299</p>
+                                                <a href="#" class="btn btn-primary">ADD TO CART</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="card" style="width: 18rem;">
+                                            <img src="/img/eye3.jpg" class="card-img-top" alt="...">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Glitter love</h5>
+                                                <p class="card-text">Price: $299</p>
+                                                <!-- Fix: Added the missing > after p tag -->
+                                                <a href="#" class="btn btn-primary">ADD TO CART</a>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                                <div class="container text-center">
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="card" style="width: 18rem;">
+                                                <img src="/img/mak8.jpg" class="card-img-top" alt="...">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">Happy bundle</h5>
+                                                    <p class="card-text">Price: $299</p>
+                                                    <a href="#" class="btn btn-primary">ADD TO CART</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="card" style="width: 18rem;">
+                                                <img src="/img/mak10.jpg" class="card-img-top" alt="...">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">Volume Mascara</h5>
+                                                    <p class="card-text">Price: $299</p>
+                                                    <a href="#" class="btn btn-primary">ADD TO CART</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="card" style="width: 18rem;">
+                                                <img src="/img/mak11.jpg" class="card-img-top" alt="...">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">Face powder</h5>
+                                                    <p class="card-text">Price: $299</p>
+                                                    <a href="#" class="btn btn-primary">ADD TO CART</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                               
+                            </div>
+                            <div class="container text-center">
+                                <ul class="pagination">
+                                    <li style="margin: 3px;" class="page-item" id="prevPage"><a class="page-link" href="#">Previous</a></li>
+                                    <li style="margin: 3px;"  class="page-item" id="currentPage">Page 1</li>
+                                    <li style="margin: 3px;"  class="page-item" id="nextPage"><a class="page-link" href="#">Next</a></li>
+                                </ul>
+                            </div>
+                        
+                            <script>
+                                document.addEventListener('DOMContentLoaded', function () {
+                                    const products = document.querySelectorAll('.card');
+                                    const pageSize = 3;
+                                    let currentPage = 1;
+                        
+                                    function showPage(page) {
+                                        const startIndex = (page - 1) * pageSize;
+                                        const endIndex = startIndex + pageSize;
+                        
+                                        products.forEach((product, index) => {
+                                            if (index >= startIndex && index < endIndex) {
+                                                product.style.display = 'block';
+                                            } else {
+                                                product.style.display = 'none';
+                                            }
+                                        });
+                        
+                                        document.getElementById('currentPage').innerText = `Page ${currentPage}`;
+                                    }
+                        
+                                    document.getElementById('prevPage').addEventListener('click', function () {
+                                        if (currentPage > 1) {
+                                            currentPage--;
+                                            showPage(currentPage);
+                                        }
+                                    });
+                        
+                                    document.getElementById('nextPage').addEventListener('click', function () {
+                                        const totalPages = Math.ceil(products.length / pageSize);
+                                        if (currentPage < totalPages) {
+                                            currentPage++;
+                                            showPage(currentPage);
+                                        }
+                                    });
+                        
+                                    // Initially show the first page
+                                    showPage(currentPage);
+                                });
+                            </script>
+                           
+
+                           
+                            
+</body>
+
+
+</html>

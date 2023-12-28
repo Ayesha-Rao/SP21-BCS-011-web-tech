@@ -1,0 +1,248 @@
+body {
+    background-color: rgb((244, 240, 236), 215);
+  }
+ 
+  #productform {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #ffffff; /* White background color */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-label {
+    font-weight: bold;
+}
+
+.product {
+    font-size: 1.2em;
+}
+
+#command {
+    font-size: 1.1em;
+    margin-bottom: 20px;
+}
+
+#addProductID {
+    width: 100%;
+}
+  .imge :hover{
+    transform: scale(1.1);
+
+    /* filter: grayscale(100%); /* Start as grayscale */
+  /* transition: filter 0.3s; */ 
+  
+   
+  }
+
+  .col {
+    padding: 5px;
+    margin-top: 40px;
+  }
+
+  .img {
+    width: 300px;
+    height: 300px;
+  }
+  .img2{
+    animation: my-animation 7s infinite }
+    @keyframes my-animation {
+      0% { transform: rotate(0deg); }
+      30% { transform: rotate(90deg); }
+      
+      50% { transform: rotate(180deg); }
+     70% { transform: rotate(270deg); }
+      
+      100% { transform: rotate(360deg); }
+    }
+  /* .img2 :hover{
+    
+    border: 2px solid #d43535; 
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.9); 
+   transform: scale(1.1); */
+   /* filter: grayscale(100%); */
+
+
+  /* } */
+  .img3 :hover{
+    transform: scale(1.1);
+  }
+  .fade-out{
+    animation: fadeOut 5s infinite;
+  }
+  @keyframes fadeOut {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+  }
+
+  .para {
+    font-size: medium;
+    color: rgb(100, 73, 40);
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+      "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  }
+
+  .last img {
+
+    width: 280px;
+    height: 270px;
+    margin: 0px;
+
+    padding: 0px;
+  }
+
+  .colll {
+    /* margin-right:50px; */
+    padding: 0px;
+    background-color: rgb(183, 148, 116);
+    overflow: hidden;
+    margin-bottom: 100px;
+    align-items: center;
+  
+  }
+  .p1{
+    color: white;
+  }
+
+
+  .background-image {
+    background-image: url(/img/bgimage.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    opacity: 0.7;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; 
+}  .backg-image {
+  background-image: url(/img/bgimage.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  opacity: 0.5;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; 
+}
+.backimage {
+  background-image: url(/img/lip1.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  opacity: 0.7;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; 
+}
+.form-container {
+    margin: 50px;
+    padding: 50px;
+    background-color:  rgba(255, 255, 255, 0.7);/* Adjust the last value for form container opacity */
+}
+#registration-form {
+    width: 500px;
+    margin: 0 auto;
+    
+}
+#registration-form label {
+    display: inline-block;
+    width: 150px;
+    /* margin: 20px; */
+    text-align: right;
+    margin-top: 20px;
+}
+#registration-form input {
+    width: 300px;
+    margin-left:30px ;
+}
+#registration-form button {
+    margin-left: 420px;
+    margin-top: 20px;
+}
+#registration-form label.error {
+    color: red;
+    width: 300px;
+    display: inline-block;
+   
+    text-align: left;
+}
+.names{
+
+   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+   
+}
+.but{
+    background-color: rgb(234, 227, 227);
+    border: 2px solid rgb(12, 12, 12);
+    border-radius: 3px;
+    padding: 5px;
+    font-size: 18px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    cursor: pointer;
+    
+    transition: background-color 0.3s, color 0.3s;
+}
+.but:hover {
+    background-color: rgb(12, 12, 12);
+    color: white;
+}
+.form-container input{
+    background-origin: padding-box;
+    border: 2px solid rgb(95, 66, 66);
+    border-radius: 3px;
+    padding: 5px;
+    transition: border-color 0.3s;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+}
+.form-container input:hover {
+    border-color: rgb(12, 12, 12);
+}
+.form-container h2{
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.form-container label.names {
+    display: inline-block;
+    width: 150px;
+    text-align: right;
+    margin-top: 20px;
+    transition: color 0.5s;
+}
+
+.form-container label.names:hover {
+    color: rgb(169, 134, 134);
+}
+@media screen and (max-width: 768px) {
+    .form-container {
+        width: 90%;
+        padding: 20px;
+    }
+
+    #registration-form label {
+        width: 100%;
+        text-align: left;
+        margin-top: 10px;
+    }
+
+    #registration-form input {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    #registration-form button {
+        margin-left: 0;
+        margin-top: 20px;
+    }
+}
